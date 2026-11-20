@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Work Checker | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/ai_handwriting.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="/" class="logo">
+        Hangeul<span>Studio.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+        <a href="{{ url_for('main.progress') }}">Progress</a>
+    </div>
+</nav>
+
+<section class="section ai-handwriting-page">
+
+    <div class="section-heading">
+        <h2>AI Korean Work Checker ✨</h2>
+
+        <p>
+            Upload your Korean practice work and let Gemini
+            check your answers, grammar and sentence structure.
+        </p>
+    </div>
+
+    <div class="ai-writing-card">
+
+        <!-- PRACTICE TYPE -->
+
+        <div class="form-group">
+
+            <label for="practiceType">
+                What would you like to check?
+            </label>
+
+            <select id="practiceType">
+
+                <option value="hangul">
+                    Hangul & Vocabulary Practice
+                </option>
+
+                <option value="sentences">
+                    Korean Sentence Building
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- EXERCISE INSTRUCTIONS -->
+
+        <div class="form-group">
+
+            <label for="exerciseInstructions">
+                Exercise Instructions (Optional)
+            </label>
+
+            <textarea
+                id="exerciseInstructions"
+                placeholder="Example: Write five Korean sentences using the past tense."
+                rows="3">
+            </textarea>
+
+        </div>
+
+
+        <!-- IMAGE UPLOAD -->
+
+        <div class="form-group">
+
+            <label>Upload Your Completed Work</label>
+
+            <label for="workImage" class="upload-area">
+
+                <div class="upload-icon">📄</div>
+
+                <h3>Upload Your Korean Work</h3>
+
+                <p>Click here to choose an image</p>
+
+                <span>Supported formats: JPG, JPEG, PNG</span>
+
+            </label>
+
+            <input
+                type="file"
+                id="workImage"
+                accept="image/png, image/jpeg"
+                hidden>
+
+        </div>
+
+
+        <!-- IMAGE PREVIEW -->
+
+        <div id="imagePreviewContainer" hidden>
+
+            <h3>Image Preview</h3>
+
+            <img id="imagePreview" alt="Uploaded Korean work preview">
+
+            <button type="button" id="removeImageBtn">
+                Remove Image
+            </button>
+
+        </div>
+
+
+        <!-- ANALYZE BUTTON -->
+
+        <div class="ai-canvas-buttons">
+
+            <button type="button" id="aiAnalyzeBtn">
+                ✨ Check My Work
+            </button>
+
+        </div>
+
+
+        <!-- FEEDBACK -->
+
+        <div id="aiFeedback" aria-live="polite">
+            Your AI feedback will appear here.
+        </div>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/ai_handwriting.js') }}"></script>
+
+</body>
+</html>

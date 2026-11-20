@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Writing Studio | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/studio.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+    <a href="/" class="logo">
+        Hangeul<span>Studio.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+        <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+    </div>
+</nav>
+    <main class="studio-container">
+
+        <div class="studio-heading">
+            <div>
+                <span class="eyebrow">CREATIVE PRACTICE SPACE</span>
+                <h1>Writing Studio</h1>
+                <p>Practice your Korean handwriting, one stroke at a time.</p>
+            </div>
+
+            <div class="target-character">
+                <span>TODAY'S CHARACTER</span>
+
+                <select id="characterSelect">
+                    <option value="가" data-reading="ga">가</option>
+                    <option value="나" data-reading="na">나</option>
+                    <option value="다" data-reading="da">다</option>
+                    <option value="라" data-reading="ra">라</option>
+                    <option value="마" data-reading="ma">마</option>
+                    <option value="바" data-reading="ba">바</option>
+                    <option value="사" data-reading="sa">사</option>
+                    <option value="아" data-reading="a">아</option>
+                    <option value="자" data-reading="ja">자</option>
+                    <option value="하" data-reading="ha">하</option>
+                </select>
+
+                <small id="characterReading">ga</small>
+            </div>
+        </div>
+
+        <section class="workspace">
+
+            <!-- Drawing Toolbar -->
+            <div class="toolbar">
+
+                <h3>Drawing Tools</h3>
+
+                <div class="tool-grid">
+
+                    <button class="tool active" data-tool="pen">
+                        ✒ Pen
+                    </button>
+
+                    <button class="tool" data-tool="pencil">
+                        ✎ Pencil
+                    </button>
+
+                    <button class="tool" data-tool="marker">
+                        ▰ Marker
+                    </button>
+
+                    <button class="tool" data-tool="calligraphy">
+                        ✍ Calligraphy
+                    </button>
+
+                    <button class="tool" data-tool="highlighter">
+                        ▱ Highlighter
+                    </button>
+
+                    <button class="tool" data-tool="eraser">
+                        ◻ Eraser
+                    </button>
+
+                </div>
+
+                <div class="setting">
+                    <label for="brushSize">
+                        Brush Size <span id="sizeValue">5</span> px
+                    </label>
+
+                    <input type="range" id="brushSize"
+                           min="1" max="40" value="5">
+                </div>
+
+                <div class="setting">
+                    <label for="opacity">
+                        Opacity <span id="opacityValue">100</span>%
+                    </label>
+
+                    <input type="range" id="opacity"
+                           min="10" max="100" value="100">
+                </div>
+
+                <div class="setting">
+                    <label for="colorPicker">Brush Colour</label>
+
+                    <input type="color" id="colorPicker"
+                           value="#713b4b">
+                </div>
+
+                <div class="actions">
+
+                    <button id="undoBtn">↶ Undo</button>
+                    <button id="redoBtn">↷ Redo</button>
+                    <button id="clearBtn">Clear Canvas</button>
+
+                    <button id="downloadBtn" class="download">
+                        Download PNG ↓
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Writing Canvas -->
+            <div class="canvas-area">
+
+                <div class="canvas-top">
+                    <span>YOUR WRITING CANVAS</span>
+                    <span>Free Practice</span>
+                </div>
+
+                <div class="canvas-wrapper">
+                    <div id="traceGuide">가</div>
+                    <canvas id="drawingCanvas"></canvas>
+                </div>
+                
+   
+                <div class="canvas-footer">
+                    <span>Express yourself through Hangul ✦</span>
+                    <button id="toggleGuide">Hide Guide</button>
+                </div>
+<div class="practice-completion">
+    <button id="completePractice">
+        ✓ Complete Practice
+    </button>
+
+    <p id="writingStatus"></p>
+</div>
+                <!-- Stroke Order Learning -->
+                <div class="stroke-panel">
+
+                    <h3>Learn Stroke Order</h3>
+
+                    <!-- Lesson Information -->
+                    <div class="lesson-info">
+
+                        <div class="lesson-character" id="lessonCharacter">
+                            가
+                        </div>
+
+                        <h4 id="lessonReading">ga</h4>
+
+                        <p id="lessonDescription">
+                            A Korean syllable combining ㄱ and ㅏ.
+                        </p>
+
+                        <p class="stroke-total">
+                            Total Strokes:
+                            <span id="totalStrokes">4</span>
+                        </p>
+
+                        <div class="writing-tip">
+                            <strong>Writing Tip:</strong>
+                            <span id="writingTip">
+                                Write ㄱ in two strokes, followed by ㅏ in two strokes.
+                            </span>
+                        </div>
+
+                    </div>
+
+                    <!-- SVG Stroke Display -->
+                    <div class="stroke-display" id="strokeDisplay">
+
+                        
+<svg id="strokeSvg" viewBox="0 0 220 200">
+    <defs>
+        <marker
+            id="arrowHead"
+            markerWidth="7"
+            markerHeight="7"
+            refX="5"
+            refY="3"
+            orient="auto">
+            <path d="M0 0 L6 3 L0 6 Z" fill="#713b4b"/>
+        </marker>
+    </defs>
+
+    <!-- Character strokes -->
+    <g id="strokeContainer"></g>
+
+    <!-- Stroke numbers -->
+    <g id="strokeNumbers"></g>
+</svg>
+
+
+                    </div>
+
+                    <!-- Stroke Controls -->
+                    <div class="stroke-controls">
+
+                        <button id="prevStroke">
+                            ← Previous
+                        </button>
+
+                        <span id="strokeCounter">
+                            Stroke 1 / 4
+                        </span>
+
+                        <button id="nextStroke">
+                            Next →
+                        </button>
+
+                    </div>
+
+                    <button id="resetStrokes">
+                        Restart Lesson
+                    </button>
+
+                    <button id="playAnimation">
+                        ▶ Play Animation
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/canvas.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Syllable Building | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/syllables.css') }}">
+
+<body>
+
+    
+    <!-- Navigation -->
+<nav class="navbar">
+
+    <a href="/" class="logo">
+        Hangeul<span>Studio.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+        <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+    </div>
+
+</nav>
+
+    <!-- Hero -->
+    <header class="syllable-hero">
+        <span class="eyebrow">LEARN KOREAN STEP BY STEP</span>
+
+        <h1>Build Your First <span>Korean Syllables</span></h1>
+
+        <p>
+            Learn how Korean consonants and vowels come together
+            to create meaningful syllables, words and sentences.
+        </p>
+    </header>
+
+    <main class="syllable-container">
+
+        <!-- Introduction -->
+        <section class="intro-section">
+            <h2>How Korean Syllables Work</h2>
+
+            <p>
+                Korean letters are combined into square-shaped syllable
+                blocks. Every syllable has at least one consonant and
+                one vowel. Some syllables also have a final consonant.
+            </p>
+        </section>
+
+        <!-- Example -->
+        <section class="example-section">
+
+            <h2>Let's Build a Syllable!</h2>
+
+            <div class="example-box">
+
+                <div class="example-letter">
+                    <span>ㄱ</span>
+                    <small>Consonant</small>
+                </div>
+
+                <div class="plus-sign">+</div>
+
+                <div class="example-letter">
+                    <span>ㅏ</span>
+                    <small>Vowel</small>
+                </div>
+
+                <div class="equals-sign">=</div>
+
+                <div class="result-letter">
+                    <span>가</span>
+                    <small>Ga</small>
+                </div>
+
+            </div>
+
+            <p class="example-note">
+                ㄱ + ㅏ = 가 (Ga)
+            </p>
+
+        </section>
+
+        <!-- SINGLE SYLLABLE BUILDER -->
+        <section class="builder-section">
+
+            <div class="section-heading">
+                <span class="eyebrow">LEVEL 1</span>
+                <h2>Single Syllable Builder</h2>
+                <p>
+                    Select one consonant, one vowel and an optional
+                    final consonant.
+                </p>
+            </div>
+
+            <div class="builder-card">
+
+                <h3>1. Choose Initial Consonant</h3>
+
+                <div class="letter-grid" id="consonantGrid">
+
+                    {% for letter in ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"] %}
+                    <button type="button" data-consonant="{{ letter }}">
+                        {{ letter }}
+                    </button>
+                    {% endfor %}
+
+                </div>
+
+                <h3>2. Choose Vowel</h3>
+
+                <div class="letter-grid" id="vowelGrid">
+
+                    {% for letter in ["ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅗ","ㅘ","ㅙ","ㅚ","ㅛ","ㅜ","ㅝ","ㅞ","ㅟ","ㅠ","ㅡ","ㅢ","ㅣ"] %}
+                    <button type="button" data-vowel="{{ letter }}">
+                        {{ letter }}
+                    </button>
+                    {% endfor %}
+
+                </div>
+
+                <h3>3. Choose Final Consonant (Optional)</h3>
+
+                <div class="letter-grid" id="finalGrid">
+
+                    {% for letter in ["","ㄱ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"] %}
+                    <button type="button" data-final="{{ letter }}">
+                        {{ letter if letter else "None" }}
+                    </button>
+                    {% endfor %}
+
+                </div>
+
+                <div class="word-preview">
+                    <span>SYLLABLE PREVIEW</span>
+                    <div id="builtSyllable">가</div>
+                    <p id="syllableRomanization">ga</p>
+                </div>
+
+                <button id="playSyllable" class="audio-button" type="button">
+                    🔊 Listen to Syllable
+                </button>
+
+            </div>
+        </section>
+
+        <!-- WORD AND SENTENCE BUILDER -->
+        <section class="word-builder-section">
+
+            <div class="section-heading">
+                <span class="eyebrow">LEVEL 2</span>
+                <h2>Word & Sentence Builder</h2>
+
+                <p>
+                    Build multiple Korean syllables and combine them
+                    into words and sentences.
+                </p>
+            </div>
+
+            <div class="builder-card">
+
+                <h3>1. Create Your Syllable</h3>
+
+                <div class="word-controls">
+
+                    <div class="selection-group">
+                        <label for="wordInitial">Initial Consonant</label>
+
+                        <select id="wordInitial">
+                            {% for letter in ["ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅇ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"] %}
+                            <option value="{{ letter }}">{{ letter }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="wordVowel">Vowel</label>
+
+                        <select id="wordVowel">
+                            {% for letter in ["ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅗ","ㅘ","ㅙ","ㅚ","ㅛ","ㅜ","ㅝ","ㅞ","ㅟ","ㅠ","ㅡ","ㅢ","ㅣ"] %}
+                            <option value="{{ letter }}">{{ letter }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="selection-group">
+                        <label for="wordFinal">Final Consonant</label>
+
+                        <select id="wordFinal">
+                            <option value="">None</option>
+
+                            {% for letter in ["ㄱ","ㄲ","ㄴ","ㄷ","ㄹ","ㅁ","ㅂ","ㅅ","ㅆ","ㅇ","ㅈ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ"] %}
+                            <option value="{{ letter }}">{{ letter }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                </div>
+
+                <div class="word-preview">
+                    <span>SYLLABLE PREVIEW</span>
+                    <div id="wordPreview">가</div>
+                </div>
+
+                <button id="addSyllable" class="audio-button" type="button">
+                    + Add Syllable
+                </button>
+
+                <hr class="word-divider">
+
+                <h3>2. Your Korean Word or Sentence</h3>
+
+                <div id="wordOutput" class="word-output empty">
+                    Start adding syllables...
+                </div>
+
+                <!-- ROMANIZATION -->
+                <div class="word-romanization-section">
+                    <span>ROMANIZATION</span>
+                    <p id="wordRomanization">
+                        Romanization will appear here.
+                    </p>
+                </div>
+
+                <!-- ENGLISH MEANING -->
+                <div class="word-meaning">
+    <span>ENGLISH MEANING</span>
+    <p id="wordMeaning">
+        Meaning will appear here.
+    </p>
+
+    <div id="wordBreakdown" class="word-breakdown"></div>
+</div>
+
+                <!-- CONTROLS -->
+                <div class="word-actions">
+
+                    <button id="removeSyllable" type="button">
+                        ← Remove Last
+                    </button>
+
+                    <button id="addSpace" type="button">
+                        Add Space
+                    </button>
+
+                    <button id="clearWord" type="button">
+                        Clear All
+                    </button>
+
+                </div>
+
+                <!-- PRONUNCIATION -->
+                <button id="playWord" class="audio-button" type="button">
+                    🔊 Listen to Complete Text
+                </button>
+
+                <p class="word-help">
+                    Tip: Build 나는 by adding 나, then 는.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Back -->
+        <div class="back-section">
+            <a href="{{ url_for('main.learn_hangul') }}">
+                ← Back to Learn Hangul
+            </a>
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/syllables.js') }}"></script>
+
+</body>
+</html>

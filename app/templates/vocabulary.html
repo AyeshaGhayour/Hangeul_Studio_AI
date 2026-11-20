@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Korean Vocabulary | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/vocabulary.css') }}">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="/" class="logo">
+            Hangeul<span>Studio.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+            <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="vocabulary-hero">
+        <p class="section-tag">BUILD YOUR KOREAN VOCABULARY</p>
+        <h1>Learn Korean <span>Words</span></h1>
+        <p>
+            Discover useful Korean words, learn their meanings,
+            and practice your pronunciation.
+        </p>
+    </section>
+
+    <!-- Vocabulary Section -->
+    <section class="vocabulary-section">
+
+        <div class="vocabulary-header">
+            <div>
+                <h2>Your Vocabulary Deck</h2>
+                <p>Choose a category and start learning.</p>
+            </div>
+        </div>
+
+        <!-- Category Filters -->
+        
+<!-- Category Filters -->
+<div class="category-filters" id="categoryFilters">
+
+    <button class="category-btn active" data-category="all">
+        All Words
+    </button>
+
+    <button class="category-btn" data-category="numbers">Numbers</button>
+    <button class="category-btn" data-category="colors">Colors</button>
+    <button class="category-btn" data-category="greetings">Greetings</button>
+    <button class="category-btn" data-category="people">People</button>
+    <button class="category-btn" data-category="family">Family</button>
+    <button class="category-btn" data-category="food">Food</button>
+    <button class="category-btn" data-category="drinks">Drinks</button>
+    <button class="category-btn" data-category="restaurants">Restaurants</button>
+    <button class="category-btn" data-category="home">Home</button>
+    <button class="category-btn" data-category="school">School</button>
+    <button class="category-btn" data-category="work">Work</button>
+    <button class="category-btn" data-category="transport">Transport</button>
+    <button class="category-btn" data-category="travel">Travel</button>
+    <button class="category-btn" data-category="shopping">Shopping</button>
+    <button class="category-btn" data-category="places">Places</button>
+    <button class="category-btn" data-category="body">Body</button>
+    <button class="category-btn" data-category="health">Health</button>
+    <button class="category-btn" data-category="feelings">Feelings</button>
+    <button class="category-btn" data-category="weather">Weather</button>
+    <button class="category-btn" data-category="nature">Nature</button>
+    <button class="category-btn" data-category="verbs">Verbs</button>
+    <button class="category-btn" data-category="adjectives">Adjectives</button>
+    <button class="category-btn" data-category="time">Time</button>
+    <button class="category-btn" data-category="daily routine">Daily Routine</button>
+    <button class="category-btn" data-category="technology">Technology</button>
+    <button class="category-btn" data-category="expressions">Expressions</button>
+    <button class="category-btn" data-category="study">Study</button>
+    <button class="category-btn" data-category="daily life">Daily Life</button>
+
+</div>
+
+
+        <!-- Search -->
+        <div class="vocabulary-search">
+            <input
+                type="text"
+                id="vocabularySearch"
+                placeholder="Search Korean or English words..."
+            >
+        </div>
+
+        <!-- Card Area -->
+        <div class="flashcard-container" id="flashcardContainer">
+
+            <div class="flashcard" id="flashcard">
+
+                <div class="flashcard-inner">
+
+                    <div class="flashcard-front">
+                        <span class="card-label">KOREAN WORD</span>
+
+                        <h2 id="koreanWord">안녕하세요</h2>
+
+                        <p id="romanization">Annyeonghaseyo</p>
+
+                        <button id="revealButton" class="reveal-btn">
+                            Reveal Meaning
+                        </button>
+                    </div>
+
+                    <div class="flashcard-back">
+                        <span class="card-label">MEANING</span>
+
+                        <h2 id="englishMeaning">Hello</h2>
+
+                        <p id="wordExample">안녕하세요!</p>
+
+                        <p id="exampleMeaning">Hello!</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Card Controls -->
+        <div class="card-controls">
+
+            <button id="previousCard">← Previous</button>
+
+            <span id="cardCounter">1 / 20</span>
+
+            <button id="nextCard">Next →</button>
+
+        </div>
+
+        <!-- Audio -->
+        <button id="playPronunciation" class="audio-btn">
+            🔊 Listen to Pronunciation
+        </button>
+
+        <!-- Progress -->
+        <div class="vocabulary-progress">
+            <div class="progress-info">
+                <span>Learning Progress</span>
+                <span id="progressText">0 / 20 learned</span>
+            </div>
+
+            <div class="progress-bar">
+                <div id="progressFill"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <script src="{{ url_for('static', filename='js/vocabulary-data.js') }}"></script>
+<script src="{{ url_for('static', filename='js/vocabulary.js') }}"></script>
+</body>
+</html>

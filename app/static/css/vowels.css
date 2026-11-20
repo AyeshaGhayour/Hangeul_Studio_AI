@@ -1,0 +1,224 @@
+
+/* ==========================================
+   HANGEUL STUDIO AI
+   KOREAN VOWELS PAGE
+========================================== */
+
+/* Hero */
+
+.vowel-hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    background: #fff8f8;
+}
+
+.vowel-hero .eyebrow {
+    color: #713b4b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.vowel-hero h1 {
+    font-size: 48px;
+    color: #30252a;
+    margin: 18px 0;
+}
+
+.vowel-hero h1 span {
+    color: #713b4b;
+}
+
+.vowel-hero p {
+    color: #786b70;
+    font-size: 16px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Main container */
+
+.vowel-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 65px 25px;
+}
+
+/* Section headings */
+
+.vowel-section .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.vowel-section .section-heading h2 {
+    color: #30252a;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.vowel-section .section-heading p {
+    color: #786b70;
+}
+
+/* Vowel cards */
+
+.vowel-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.vowel-card {
+    background: #ffffff;
+    border: 1px solid #f0e3e7;
+    border-radius: 16px;
+    min-height: 135px;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.vowel-card:hover {
+    transform: translateY(-5px);
+    border-color: #713b4b;
+    box-shadow: 0 10px 25px rgba(113, 59, 75, 0.12);
+}
+
+.vowel-card span {
+    font-size: 43px;
+    font-weight: 600;
+    color: #713b4b;
+}
+
+.vowel-card small {
+    font-size: 13px;
+    color: #786b70;
+}
+
+.vowel-card.selected {
+    background: #fff1f4;
+    border: 2px solid #713b4b;
+}
+
+/* Compound vowels */
+
+.compound-section {
+    margin-top: 70px;
+}
+
+/* Vowel details */
+
+.vowel-details {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    background: #fff8f8;
+    border: 1px solid #f0e3e7;
+    border-radius: 20px;
+    padding: 35px;
+    margin-top: 65px;
+}
+
+.detail-character {
+    font-size: 90px;
+    font-weight: 700;
+    color: #713b4b;
+}
+
+.detail-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #9a7783;
+    font-weight: 700;
+}
+
+.detail-info h2 {
+    color: #30252a;
+    margin: 10px 0;
+}
+
+.detail-info p {
+    color: #786b70;
+    margin: 8px 0;
+}
+
+.detail-info h3 {
+    color: #713b4b;
+    font-size: 25px;
+    margin-top: 18px;
+}
+
+/* Audio button */
+
+.audio-button {
+    margin-top: 18px;
+    padding: 12px 22px;
+    background: #713b4b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.audio-button:hover {
+    background: #542a38;
+    transform: translateY(-2px);
+}
+
+/* Back link */
+
+.back-section {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.back-section a {
+    color: #713b4b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-section a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+
+@media (max-width: 800px) {
+    .vowel-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .vowel-hero h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 550px) {
+    .vowel-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .vowel-hero h1 {
+        font-size: 32px;
+    }
+
+    .vowel-container {
+        padding: 45px 18px;
+    }
+
+    .vowel-details {
+        flex-direction: column;
+        text-align: center;
+    }
+}

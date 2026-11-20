@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>K-Word Quest | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/smart_learning.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <a href="/" class="logo">
+        Hangeul<span>Studio.</span>
+    </a>
+
+    <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+        <a href="{{ url_for('main.progress') }}">Progress</a>
+    </div>
+</nav>
+
+<section class="smart-page">
+
+    <div class="smart-heading">
+        <span class="eyebrow">YOUR KOREAN ADVENTURE STARTS HERE</span>
+
+        <h1>K-WORD QUEST 🇰🇷</h1>
+
+        <h2>See it. Hear it. Match it! 🎯</h2>
+
+        <p>
+            Explore 50+ Korean words through colorful pictures,
+            pronunciation and exciting audio challenges!
+        </p>
+    </div>
+
+    <!-- GAME MODES -->
+
+    <div class="learning-modes">
+
+        <!-- PICTURE LEARNING -->
+
+        <div class="mode-card">
+            <div class="mode-icon">🃏</div>
+
+            <h2>Picture Learning</h2>
+
+            <p>
+                Explore Korean vocabulary with pictures,
+                meanings and pronunciation audio.
+            </p>
+
+            <button id="startLearningBtn" type="button">
+                Start Learning →
+            </button>
+        </div>
+
+        <!-- SINGLE MIXED QUIZ -->
+
+        <div class="mode-card">
+            <div class="mode-icon">🎯</div>
+
+            <h2>Take Quiz</h2>
+
+            <p>
+                Test your Korean vocabulary with a fun
+                mixture of picture puzzles and audio challenges!
+            </p>
+
+            <button id="startQuizBtn" type="button">
+                Start Quiz →
+            </button>
+        </div>
+
+    </div>
+
+    <!-- LEARNING AREA -->
+
+    <div id="learningArea" class="activity-area" hidden>
+
+        <div class="activity-heading">
+            <h2>🃏 Picture Learning</h2>
+
+            <p>
+                Explore each picture, learn its Korean word
+                and listen to its pronunciation.
+            </p>
+        </div>
+
+        <div id="learningCards" class="learning-cards"></div>
+
+        <button id="backToModes" class="back-button" type="button">
+            ← Back to Quest
+        </button>
+
+    </div>
+
+    <!-- QUIZ AREA -->
+
+    <div id="quizArea" class="activity-area" hidden>
+
+        <div class="activity-heading">
+            <h2 id="quizHeading">🎯 Take Quiz</h2>
+
+            <p id="quizDescription">
+                Answer a mixture of picture and audio questions!
+            </p>
+        </div>
+
+        <div class="quiz-card">
+
+            <div class="quiz-top">
+                <span id="questionCounter">Question 1 / 50</span>
+
+                <span id="quizScore">⭐ Score: 0</span>
+            </div>
+
+            <div class="quiz-progress">
+                <div id="quizProgressBar"></div>
+            </div>
+
+            <div class="word-prompt">
+
+                <span id="quizTypeLabel">
+                    FIND THE MATCHING PICTURE
+                </span>
+
+                <h2 id="quizQuestion">가방</h2>
+
+                <p id="quizPronunciation">gabang</p>
+
+                <!-- AUDIO QUESTION BUTTON -->
+
+                <button
+                    id="playAudioBtn"
+                    type="button"
+                    hidden
+                >
+                    🔊 Play Korean Audio
+                </button>
+
+                <p id="audioInstruction" hidden>
+                    Listen carefully and choose the correct picture!
+                </p>
+
+            </div>
+
+            <!-- FOUR PICTURE OPTIONS -->
+
+            <div id="quizOptions" class="picture-options"></div>
+
+            <p id="quizFeedback" aria-live="polite"></p>
+
+            <button
+                id="nextQuestionBtn"
+                type="button"
+                hidden
+            >
+                Next Question →
+            </button>
+
+            <!-- FINAL RESULTS -->
+
+            <div id="quizResult" class="quiz-result" hidden>
+
+                <div style="font-size: 65px;">🏆</div>
+
+                <h2>Quest Completed!</h2>
+
+                <p>Your final score</p>
+
+                <h1 id="finalQuizScore">0 / 50</h1>
+
+                <p id="finalQuizMessage">
+                    Amazing effort!
+                </p>
+
+                <button id="retryQuiz" type="button">
+                    Play Again ↻
+                </button>
+
+            </div>
+
+        </div>
+
+        <button id="backFromQuiz" class="back-button" type="button">
+            ← Back to Quest
+        </button>
+
+    </div>
+
+</section>
+
+<script src="{{ url_for('static', filename='js/smart_learning.js') }}"></script>
+
+</body>
+</html>

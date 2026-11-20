@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hangeul Studio AI | Learn Korean</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            Hangeul<span>Studio.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#features" class="nav-button">Start Learning</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                YOUR KOREAN LEARNING SPACE
+            </span>
+
+            <h1>
+                Write Korean.<br>
+                <span>Find Your Flow.</span>
+            </h1>
+
+            <p>
+                Discover the beauty of Hangul through interactive
+                handwriting practice, AI-powered learning and
+                personalized Korean lessons.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#features" class="primary-button">
+                    Explore Studio →
+                </a>
+
+                <a href="#about" class="secondary-button">
+                    Discover More
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Korean Practice Preview -->
+        <div class="hero-card">
+
+            <div class="card-top">
+                <span class="card-label">TODAY'S PRACTICE</span>
+                <span class="level">BEGINNER</span>
+            </div>
+
+            <div class="korean-character">
+
+                <span class="character">한</span>
+
+                <span class="character-info">
+                    han · Korean
+                </span>
+
+            </div>
+
+            <div class="card-bottom">
+
+                <strong>Learn your first character</strong>
+
+                <span>Let's practice ✦</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+
+        <div class="section-heading">
+
+            <h2>Everything You Need to Learn</h2>
+
+            <p>
+                One creative space to practice, learn and improve your Korean.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <!-- Clickable Writing Studio Card -->
+            <a href="{{ url_for('main.studio') }}" class="feature-card">
+
+                <div class="feature-icon">✍</div>
+
+                <h3>Writing Studio</h3>
+
+                <p>
+                    Practice Korean handwriting using different
+                    brushes, pencils, markers and calligraphy tools.
+                </p>
+
+            </a>
+
+
+            <a href="{{ url_for('main.learn_hangul') }}" class="feature-card">
+
+    <div class="feature-icon">한</div>
+
+    <h3>Learn Hangul</h3>
+
+    <p>
+        Explore Korean consonants, vowels, syllables
+        and guided stroke-order lessons.
+    </p>
+
+</a>
+
+
+            <a href="{{ url_for('main.ai_handwriting') }}" class="feature-card">
+
+    <div class="feature-icon">✦</div>
+
+    <h3>AI Handwriting Check</h3>
+
+    <p>
+        Submit your handwriting and receive
+        character recognition and learning feedback.
+    </p>
+
+</a>
+
+<a href="{{ url_for('main.vocabulary') }}" class="feature-card">
+
+    <div class="feature-icon">📖</div>
+
+    <h3>Korean Vocabulary</h3>
+
+    <p>
+        Discover new Korean words, their meanings
+        and practical example sentences.
+    </p>
+
+</a>
+
+
+           <a href="{{ url_for('main.progress') }}" class="feature-card">
+
+    <div class="feature-icon">◷</div>
+
+    <h3>Track Your Progress</h3>
+
+    <p>
+        Keep track of your lessons, writing practice
+        and learning achievements.
+    </p>
+
+</a>
+
+
+           <a href="{{ url_for('main.smart_learning') }}" class="feature-card">
+
+    <div class="feature-icon">🎮</div>
+
+    <h3>Smart Learning</h3>
+
+    <p>
+        Learn Korean through interactive flashcards,
+        fun quizzes and exciting language games.
+    </p>
+
+</a>
+        </div>
+
+    </section>
+
+
+    <!-- Call to Action -->
+    <section class="cta" id="about">
+
+        <h2>Your Korean Journey Starts Here.</h2>
+
+        <p>
+            Start with one character. Build a whole new language.
+        </p>
+
+        <a href="#features">
+            Explore Learning Tools →
+        </a>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <span>© 2026 Hangeul Studio AI</span>
+
+        <span>Made with ♥ for Korean learners</span>
+
+    </footer>
+
+</body>
+</html>

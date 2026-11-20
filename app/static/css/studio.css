@@ -1,0 +1,556 @@
+
+.studio-container {
+    padding: 55px 6%;
+}
+
+.studio-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+    gap: 20px;
+}
+
+.studio-heading h1 {
+    font-size: 38px;
+    margin: 12px 0;
+}
+
+.studio-heading p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.target-character {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 15px 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 140px;
+}
+
+.target-character span {
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.target-character strong {
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--burgundy);
+    font-size: 45px;
+}
+
+.target-character small {
+    color: var(--muted);
+}
+
+.workspace {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 22px;
+}
+
+.toolbar,
+.canvas-area {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 24px;
+}
+
+.toolbar h3 {
+    font-size: 17px;
+    margin-bottom: 22px;
+}
+
+.tool-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 9px;
+    margin-bottom: 28px;
+}
+
+.tool {
+    border: 1px solid var(--border);
+    background: #fff;
+    border-radius: 8px;
+    padding: 12px 5px;
+    font-size: 12px;
+    cursor: pointer;
+    color: var(--dark);
+}
+
+.tool:hover,
+.tool.active {
+    background: var(--pink);
+    border-color: #d9aeb7;
+    color: var(--burgundy);
+}
+
+.setting {
+    margin-bottom: 23px;
+}
+
+.setting label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.setting input[type="range"] {
+    width: 100%;
+    accent-color: var(--burgundy);
+    cursor: pointer;
+}
+
+.setting input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+    background: transparent;
+}
+
+.actions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 25px;
+}
+
+.actions button {
+    padding: 11px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.actions button:hover {
+    border-color: var(--burgundy);
+    color: var(--burgundy);
+}
+
+.actions .download {
+    background: var(--burgundy);
+    color: white;
+    border-color: var(--burgundy);
+}
+
+.canvas-area {
+    min-width: 0;
+}
+
+.canvas-top,
+.canvas-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 600;
+}
+
+.canvas-wrapper {
+    margin: 20px 0;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #fffefa;
+    background-image:
+        linear-gradient(#eee9e3 1px, transparent 1px),
+        linear-gradient(90deg, #eee9e3 1px, transparent 1px);
+    background-size: 32px 32px;
+}
+
+#drawingCanvas {
+    display: block;
+    width: 100%;
+    height: 520px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+.canvas-footer button {
+    border: none;
+    background: var(--pink);
+    color: var(--burgundy);
+    padding: 9px 14px;
+    border-radius: 7px;
+    cursor: pointer;
+}
+
+@media(max-width: 900px) {
+    .workspace {
+        grid-template-columns: 1fr;
+    }
+
+    .tool-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .studio-heading {
+        align-items: flex-start;
+    }
+}
+
+@media(max-width: 550px) {
+    .studio-container {
+        padding: 35px 5%;
+    }
+
+    .studio-heading h1 {
+        font-size: 29px;
+    }
+
+    .target-character {
+        padding: 12px;
+        min-width: 95px;
+    }
+
+    #drawingCanvas {
+        height: 400px;
+    }
+
+    .toolbar,
+    .canvas-area {
+        padding: 17px;
+    }
+}
+/* Hangul Character Tracing */
+
+.target-character select {
+    display: block;
+    margin: 8px auto;
+    padding: 8px 16px;
+    font-size: 24px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: var(--burgundy);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.canvas-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+#traceGuide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 260px;
+    font-weight: 700;
+    color: rgba(113, 59, 75, 0.15);
+    pointer-events: none;
+    user-select: none;
+    z-index: 1;
+}
+
+#drawingCanvas {
+    position: relative;
+    z-index: 2;
+}
+/* Stroke Order Learning Panel */
+
+.stroke-panel {
+    margin-top: 25px;
+    padding: 25px;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.stroke-panel h3 {
+    color: var(--burgundy);
+    margin-bottom: 8px;
+}
+
+.stroke-panel p {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.stroke-display {
+    width: 180px;
+    height: 180px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #faf7f2;
+    border: 1px dashed #d9c5ca;
+    border-radius: 12px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 100px;
+    color: var(--burgundy);
+}
+
+.stroke-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.stroke-controls button,
+#resetStrokes {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    background: var(--burgundy);
+    color: white;
+    cursor: pointer;
+}
+
+#strokeCounter {
+    color: var(--dark);
+    font-weight: 600;
+}
+
+#resetStrokes {
+    display: block;
+    margin: 0 auto;
+    background: #eee5e1;
+    color: var(--burgundy);
+}
+/* Stroke Animation */
+
+#strokeSvg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.stroke-path {
+    fill: none;
+    stroke: #d9c5ca;
+    stroke-width: 9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stroke-path.completed {
+    stroke: #718b75;
+}
+
+.stroke-path.active {
+    stroke: var(--burgundy);
+}
+#playAnimation {
+    display: block;
+    margin: 15px auto 0;
+    padding: 11px 22px;
+    border: none;
+    border-radius: 8px;
+    background: var(--burgundy);
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+#playAnimation:hover {
+    background: #542b38;
+    transform: translateY(-2px);
+}
+
+#playAnimation:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+/* Smart Hangul Lesson */
+.lesson-info {
+    text-align: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #faf7f2;
+    border-radius: 12px;
+}
+
+.lesson-character {
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 65px;
+    font-weight: 700;
+    color: var(--burgundy);
+}
+
+#lessonReading {
+    font-size: 20px;
+    color: var(--dark);
+    margin: 5px 0;
+}
+
+#lessonDescription {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.stroke-total {
+    margin-top: 12px;
+    font-weight: 600;
+    color: var(--burgundy);
+}
+
+.writing-tip {
+    margin-top: 15px;
+    padding: 12px;
+    background: white;
+    border-left: 4px solid var(--burgundy);
+    border-radius: 6px;
+    font-size: 14px;
+    text-align: left;
+}
+/* cursor changes */
+
+/* Dynamic drawing tool cursors */
+
+#drawingCanvas {
+    cursor: crosshair;
+}
+
+#drawingCanvas.cursor-pen {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 23 L21 7 L26 12 L10 28 L4 29 Z' fill='%23713b4b' stroke='%23333333' stroke-width='1.5'/%3E%3Cpath d='M4 29 L10 28 L5 23 Z' fill='%23ffffff'/%3E%3C/svg%3E") 4 28, crosshair;
+}
+
+#drawingCanvas.cursor-pencil {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 23 L21 7 L26 12 L10 28 L4 29 Z' fill='%23e0b56b' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 4 28, crosshair;
+}
+
+#drawingCanvas.cursor-marker {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='10' y='4' width='12' height='23' rx='3' fill='%23b45b78' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 16 27, crosshair;
+}
+
+#drawingCanvas.cursor-calligraphy {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 26 L21 5 L27 10 L11 28 Z' fill='%23713b4b' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 5 27, crosshair;
+}
+
+#drawingCanvas.cursor-highlighter {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Crect x='7' y='9' width='19' height='12' rx='3' fill='%23f3d76b' stroke='%23333333' stroke-width='1.5'/%3E%3C/svg%3E") 16 15, crosshair;
+}
+
+#drawingCanvas.cursor-eraser {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M5 20 L17 5 L28 14 L16 28 L8 28 Z' fill='%23f0a5b5' stroke='%23333333' stroke-width='1.5'/%3E%3Cpath d='M11 13 L22 22' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E") 8 24, crosshair;
+}
+
+
+/* ==========================================
+   STROKE ORDER NUMBERS AND DIRECTIONS
+========================================== */
+
+#strokeSvg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.stroke-path {
+    fill: none;
+    stroke: #c9aeb5;
+    stroke-width: 7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.stroke-path.completed {
+    stroke: #713b4b;
+    opacity: 0.8;
+}
+
+.stroke-path.active {
+    stroke: #713b4b;
+    stroke-width: 9;
+    filter: drop-shadow(0 0 3px rgba(113, 59, 75, 0.3));
+}
+
+.stroke-number {
+    fill: #ffffff;
+    stroke: #713b4b;
+    stroke-width: 1.5;
+}
+
+.stroke-number-text {
+    fill: #713b4b;
+    font-size: 11px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: central;
+}
+
+.stroke-arrow {
+    fill: none;
+    stroke: #713b4b;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    marker-end: url(#arrowHead);
+}
+
+/* Stroke progress highlighting */
+
+.stroke-number.active {
+    fill: #713b4b;
+    stroke: #713b4b;
+    stroke-width: 2;
+}
+
+.stroke-number-text.active {
+    fill: #ffffff;
+}
+
+.stroke-number.completed {
+    fill: #a77b88;
+    stroke: #a77b88;
+}
+
+.stroke-number-text.completed {
+    fill: #ffffff;
+}
+
+.stroke-arrow.active {
+    stroke: #713b4b;
+    stroke-width: 4;
+    opacity: 1;
+}
+
+.stroke-arrow.completed {
+    stroke: #a77b88;
+    opacity: 0.65;
+}
+
+.stroke-arrow {
+    transition: stroke 0.2s ease, opacity 0.2s ease;
+}
+
+/* Smooth stroke drawing animation */
+
+.stroke-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    will-change: stroke-dashoffset;
+}
+
+.stroke-path.active {
+    filter: drop-shadow(0 0 4px rgba(113, 59, 75, 0.4));
+}
+
+.stroke-path.completed {
+    opacity: 1;
+}

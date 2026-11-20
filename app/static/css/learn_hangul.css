@@ -1,0 +1,165 @@
+
+/* ==========================================
+   LEARN HANGUL - PAGE DESIGN
+========================================== */
+
+.learn-hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    background: #fff8f8;
+}
+
+.learn-hero .eyebrow {
+    color: #713b4b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.learn-hero h1 {
+    font-size: 48px;
+    color: #30252a;
+    margin: 18px 0;
+}
+
+.learn-hero h1 span {
+    color: #713b4b;
+}
+
+.learn-hero p {
+    color: #786b70;
+    font-size: 16px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+.learn-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 65px 25px;
+}
+
+.alphabet-section .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.alphabet-section .section-heading h2 {
+    color: #30252a;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.alphabet-section .section-heading p {
+    color: #786b70;
+}
+
+.learning-categories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.learning-card {
+    background: #ffffff;
+    border: 1px solid #f0e3e7;
+    border-radius: 18px;
+    padding: 35px 25px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(80, 40, 55, 0.05);
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(80, 40, 55, 0.1);
+}
+
+.learning-icon {
+    width: 85px;
+    height: 85px;
+    margin: 0 auto 22px;
+    background: #f8e9ed;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 42px;
+    color: #713b4b;
+}
+
+.learning-card h3 {
+    color: #30252a;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.learning-card p {
+    color: #786b70;
+    font-size: 14px;
+    line-height: 1.7;
+    min-height: 48px;
+    margin-bottom: 22px;
+}
+
+.learning-card button {
+    background: #713b4b;
+    color: white;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.learning-card button:hover {
+    background: #542a38;
+}
+
+/* Responsive layout */
+
+@media (max-width: 800px) {
+    .learning-categories {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .learn-hero h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 550px) {
+    .learning-categories {
+        grid-template-columns: 1fr;
+    }
+
+    .learn-hero h1 {
+        font-size: 32px;
+    }
+
+    .learn-container {
+        padding: 45px 18px;
+    }
+}
+
+.learn-button {
+    display: inline-block;
+    background: #713b4b;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 9px;
+    padding: 12px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.learn-button:hover {
+    background: #542a38;
+}

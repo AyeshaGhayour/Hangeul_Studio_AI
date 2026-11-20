@@ -1,0 +1,248 @@
+
+/* ==========================================
+   HANGEUL STUDIO AI
+   KOREAN CONSONANTS PAGE
+========================================== */
+
+/* Hero section */
+
+.learn-hero {
+    text-align: center;
+    padding: 75px 20px 55px;
+    background: #fff8f8;
+}
+
+.learn-hero .eyebrow {
+    color: #713b4b;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.learn-hero h1 {
+    font-size: 48px;
+    color: #30252a;
+    margin: 18px 0;
+}
+
+.learn-hero h1 span {
+    color: #713b4b;
+}
+
+.learn-hero p {
+    color: #786b70;
+    font-size: 16px;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* Main container */
+
+.learn-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 65px 25px;
+}
+
+/* Section headings */
+
+.alphabet-section .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.alphabet-section .section-heading h2 {
+    color: #30252a;
+    font-size: 30px;
+    margin-bottom: 12px;
+}
+
+.alphabet-section .section-heading p {
+    color: #786b70;
+}
+
+/* Consonant cards */
+
+.consonant-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+}
+
+.consonant-card {
+    background: #ffffff;
+    border: 1px solid #f0e3e7;
+    border-radius: 16px;
+    min-height: 135px;
+    padding: 20px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: transform 0.25s ease,
+                box-shadow 0.25s ease,
+                border-color 0.25s ease;
+}
+
+.consonant-card:hover {
+    transform: translateY(-5px);
+    border-color: #713b4b;
+    box-shadow: 0 10px 25px rgba(113, 59, 75, 0.12);
+}
+
+.consonant-card span {
+    font-size: 43px;
+    font-weight: 600;
+    color: #713b4b;
+}
+
+.consonant-card small {
+    font-size: 13px;
+    color: #786b70;
+}
+
+/* Double consonants section */
+
+.double-section {
+    margin-top: 65px;
+}
+
+/* Learning note */
+
+.learning-note {
+    background: #fff5f7;
+    border-left: 4px solid #713b4b;
+    border-radius: 12px;
+    padding: 25px;
+    margin-top: 65px;
+}
+
+.learning-note h3 {
+    color: #713b4b;
+    margin-bottom: 10px;
+}
+
+.learning-note p {
+    color: #786b70;
+    line-height: 1.7;
+}
+
+/* Back button */
+
+.back-section {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.back-section a {
+    color: #713b4b;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.back-section a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+
+@media (max-width: 800px) {
+    .consonant-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .learn-hero h1 {
+        font-size: 38px;
+    }
+}
+
+@media (max-width: 500px) {
+    .consonant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .learn-hero h1 {
+        font-size: 32px;
+    }
+
+    .learn-container {
+        padding: 45px 18px;
+    }
+}
+
+/* Interactive consonant details */
+
+.consonant-card.selected {
+    background: #fff1f4;
+    border: 2px solid #713b4b;
+}
+
+.consonant-details {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    background: #fff8f8;
+    border: 1px solid #f0e3e7;
+    border-radius: 20px;
+    padding: 35px;
+    margin-top: 55px;
+}
+
+.detail-character {
+    font-size: 90px;
+    font-weight: 700;
+    color: #713b4b;
+}
+
+.detail-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #9a7783;
+    font-weight: 700;
+}
+
+.detail-info h2 {
+    color: #30252a;
+    margin: 10px 0;
+}
+
+.detail-info p {
+    color: #786b70;
+    margin: 8px 0;
+}
+
+.detail-info h3 {
+    color: #713b4b;
+    font-size: 25px;
+    margin-top: 18px;
+}
+
+@media (max-width: 550px) {
+    .consonant-details {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* Pronunciation audio button */
+
+.audio-button {
+    margin-top: 18px;
+    padding: 12px 22px;
+    background: #713b4b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.audio-button:hover {
+    background: #542a38;
+    transform: translateY(-2px);
+}

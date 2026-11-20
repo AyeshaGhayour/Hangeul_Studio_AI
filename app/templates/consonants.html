@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Korean Consonants | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/consonants.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            Hangeul<span>Studio.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+            <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+    <section class="learn-hero">
+
+        <span class="eyebrow">
+            HANGUL FUNDAMENTALS · 자음
+        </span>
+
+        <h1>
+            Meet the <span>Consonants.</span>
+        </h1>
+
+        <p>
+            Explore the Korean consonants and discover
+            how their sounds work in the Korean language.
+        </p>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="learn-container">
+
+        <!-- Basic Consonants -->
+        <section class="alphabet-section">
+
+            <div class="section-heading">
+
+                <h2>Basic Korean Consonants (기본 자음)</h2>
+
+                <p>
+                    Learn the 14 basic Korean consonants.
+                </p>
+
+            </div>
+
+
+            <div class="consonant-grid">
+
+                <button class="consonant-card" data-character="ㄱ">
+                    <span>ㄱ</span>
+                    <small>g / k</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㄴ">
+                    <span>ㄴ</span>
+                    <small>n</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㄷ">
+                    <span>ㄷ</span>
+                    <small>d / t</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㄹ">
+                    <span>ㄹ</span>
+                    <small>r / l</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅁ">
+                    <span>ㅁ</span>
+                    <small>m</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅂ">
+                    <span>ㅂ</span>
+                    <small>b / p</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅅ">
+                    <span>ㅅ</span>
+                    <small>s</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅇ">
+                    <span>ㅇ</span>
+                    <small>silent / ng</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅈ">
+                    <span>ㅈ</span>
+                    <small>j</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅊ">
+                    <span>ㅊ</span>
+                    <small>ch</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅋ">
+                    <span>ㅋ</span>
+                    <small>k</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅌ">
+                    <span>ㅌ</span>
+                    <small>t</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅍ">
+                    <span>ㅍ</span>
+                    <small>p</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅎ">
+                    <span>ㅎ</span>
+                    <small>h</small>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Double Consonants -->
+        <section class="alphabet-section double-section">
+
+            <div class="section-heading">
+
+                <h2>Double Korean Consonants (쌍자음)</h2>
+
+                <p>
+                    Explore the five tense consonants.
+                </p>
+
+            </div>
+
+
+            <div class="consonant-grid double-grid">
+
+                <button class="consonant-card" data-character="ㄲ">
+                    <span>ㄲ</span>
+                    <small>kk</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㄸ">
+                    <span>ㄸ</span>
+                    <small>tt</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅃ">
+                    <span>ㅃ</span>
+                    <small>pp</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅆ">
+                    <span>ㅆ</span>
+                    <small>ss</small>
+                </button>
+
+                <button class="consonant-card" data-character="ㅉ">
+                    <span>ㅉ</span>
+                    <small>jj</small>
+                </button>
+
+            </div>
+
+        </section>
+<section class="consonant-details" id="consonantDetails">
+
+    <div class="detail-character" id="detailCharacter">ㄱ</div>
+
+    <div class="detail-info">
+        <span class="detail-label">SELECTED CONSONANT</span>
+        <h2 id="detailName">기역 (Giyeok)</h2>
+        <p id="detailSound">Pronunciation: g / k</p>
+        <h3 id="detailWord">가방</h3>
+        <p id="detailMeaning">Meaning: Bag</p>
+        <button id="playPronunciation" class="audio-button" type="button">
+    🔊 Listen to Pronunciation
+</button>
+    </div>
+
+</section>
+
+        <!-- Learning Note -->
+        <section class="learning-note">
+
+            <h3>Did You Know? ✨</h3>
+
+            <p>
+                Hangul has 19 consonant letters:
+                14 basic consonants and 5 tense consonants.
+                These combine with vowels to form Korean syllable blocks.
+            </p>
+
+        </section>
+
+
+        <!-- Back Button -->
+        <div class="back-section">
+
+            <a href="{{ url_for('main.learn_hangul') }}">
+                ← Back to Learn Hangul
+            </a>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <span>© 2026 Hangeul Studio AI</span>
+
+        <span>Made with ♥ for Korean learners</span>
+
+    </footer>
+<script src="{{ url_for('static', filename='js/consonants.js') }}"></script>
+</body>
+</html>

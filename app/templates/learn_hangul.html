@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learn Hangul | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/learn_hangul.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">
+            Hangeul<span>Studio.</span>
+        </a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('main.studio') }}">Writing Studio</a>
+        </div>
+    </nav>
+
+    <section class="learn-hero">
+
+        <span class="eyebrow">YOUR KOREAN LEARNING JOURNEY</span>
+
+        <h1>Discover <span>Hangul.</span></h1>
+
+        <p>
+            Learn the Korean alphabet step by step.
+            Explore consonants, vowels and syllable combinations.
+        </p>
+
+    </section>
+
+    <main class="learn-container">
+
+        <section class="alphabet-section">
+
+            <div class="section-heading">
+                <h2>Explore the Korean Alphabet</h2>
+                <p>Start with the building blocks of Hangul.</p>
+            </div>
+
+            <div class="learning-categories">
+
+                <div class="learning-card">
+                    <div class="learning-icon">ㄱ</div>
+                    <h3>Korean Consonants</h3>
+                    <p>Learn the basic Korean consonants and their sounds.</p>
+                     <a href="{{ url_for('main.consonants') }}" class="learn-button">
+    Explore Consonants →
+</a>
+                </div>
+
+                <div class="learning-card">
+                    <div class="learning-icon">ㅏ</div>
+                    <h3>Korean Vowels</h3>
+                    <p>Discover basic and compound Korean vowels.</p>
+                    <a href="{{ url_for('main.vowels') }}" class="learn-button">
+    Explore Vowels →
+</a>
+                </div>
+
+                <div class="learning-card">
+                    <div class="learning-icon">한</div>
+                    <h3>Syllable Building</h3>
+                    <p>Combine consonants and vowels to build Korean syllables.</p>
+                   <a href="{{ url_for('main.syllables') }}" class="learn-button">
+    Explore Syllables →
+</a>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>

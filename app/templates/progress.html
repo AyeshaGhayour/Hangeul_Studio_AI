@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/progress.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">Hangeul<span>Studio.</span></a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+            <a href="{{ url_for('main.vocabulary') }}">Vocabulary</a>
+        </div>
+    </nav>
+
+    <main class="progress-container">
+
+        <section class="progress-hero">
+            <span class="eyebrow">YOUR LEARNING JOURNEY</span>
+            <h1>Track Your <span>Progress.</span></h1>
+            <p>Every character, every word and every practice session brings you closer to fluency.</p>
+        </section>
+
+       
+<section class="stats-grid">
+
+    <div class="stat-card">
+        <span class="stat-icon">한</span>
+        <h3>Hangul Characters</h3>
+        <p class="stat-number" id="hangulProgress">0</p>
+        <span>Characters learned</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-icon">📖</span>
+        <h3>Vocabulary</h3>
+        <p class="stat-number" id="vocabularyProgress">0</p>
+        <span>Words learned</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-icon">🧩</span>
+        <h3>Syllables Built</h3>
+        <p class="stat-number" id="syllablesProgress">0</p>
+        <span>Unique syllables created</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-icon">✍️</span>
+        <h3>Writing Practice</h3>
+        <p class="stat-number" id="writingProgress">0</p>
+        <span>Practice sessions</span>
+    </div>
+
+    <div class="stat-card">
+        <span class="stat-icon">🏆</span>
+        <h3>Achievements</h3>
+        <p class="stat-number" id="achievementProgress">0</p>
+        <span>Milestones unlocked</span>
+    </div>
+
+</section>
+
+
+        <section class="overall-section">
+
+            <div class="section-title">
+                <h2>Your Learning Overview</h2>
+                <p>See how far you've come.</p>
+            </div>
+
+            <div class="overall-card">
+
+                <div class="overall-info">
+                    <div>
+                        <h3>Overall Progress</h3>
+                        <p>Keep showing up. You're doing great!</p>
+                    </div>
+
+                    <strong id="overallPercentage">0%</strong>
+                </div>
+
+                <div class="progress-track">
+                    <div class="progress-fill" id="overallBar"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="achievements-section">
+
+            <div class="section-title">
+                <h2>Your Achievements</h2>
+                <p>Celebrate every little win.</p>
+            </div>
+
+            <div class="achievement-grid" id="achievementGrid">
+
+                <div class="achievement-card locked">
+                    <span>🌱</span>
+                    <h3>First Steps</h3>
+                    <p>Learn your first Korean character.</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span>📚</span>
+                    <h3>Word Collector</h3>
+                    <p>Learn 10 Korean vocabulary words.</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span>✍️</span>
+                    <h3>Practice Star</h3>
+                    <p>Complete 5 writing sessions.</p>
+                </div>
+
+                <div class="achievement-card locked">
+                    <span>🔥</span>
+                    <h3>Dedicated Learner</h3>
+                    <p>Reach 50 vocabulary words.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <section class="activity-section">
+
+            <div class="section-title">
+                <h2>Learning Activity</h2>
+                <p>Your recent learning milestones.</p>
+            </div>
+
+            <div class="activity-card" id="activityList">
+                <p class="empty-activity">Your learning activity will appear here.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <span>© 2026 Hangeul Studio AI</span>
+        <span>Made with ♥ for Korean learners</span>
+    </footer>
+<script src="{{ url_for('static', filename='js/progress.js') }}"></script>
+</body>
+</html>

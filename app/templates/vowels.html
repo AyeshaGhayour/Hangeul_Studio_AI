@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Korean Vowels | Hangeul Studio AI</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/vowels.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <a href="/" class="logo">Hangeul<span>Studio.</span></a>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="{{ url_for('main.learn_hangul') }}">Learn Hangul</a>
+            <a href="{{ url_for('main.consonants') }}">Consonants</a>
+        </div>
+    </nav>
+
+    <section class="vowel-hero">
+        <span class="eyebrow">HANGUL FUNDAMENTALS · 모음</span>
+
+        <h1>Discover Korean <span>Vowels.</span></h1>
+
+        <p>
+            Learn the 21 Korean vowels, explore their sounds
+            and listen to their pronunciation.
+        </p>
+    </section>
+
+    <main class="vowel-container">
+
+        <section class="vowel-section">
+
+            <div class="section-heading">
+                <h2>Basic Korean Vowels (기본 모음)</h2>
+                <p>Start with the 10 basic vowels.</p>
+            </div>
+
+            <div class="vowel-grid">
+
+                <button class="vowel-card" data-vowel="ㅏ"><span>ㅏ</span><small>a</small></button>
+                <button class="vowel-card" data-vowel="ㅑ"><span>ㅑ</span><small>ya</small></button>
+                <button class="vowel-card" data-vowel="ㅓ"><span>ㅓ</span><small>eo</small></button>
+                <button class="vowel-card" data-vowel="ㅕ"><span>ㅕ</span><small>yeo</small></button>
+                <button class="vowel-card" data-vowel="ㅗ"><span>ㅗ</span><small>o</small></button>
+                <button class="vowel-card" data-vowel="ㅛ"><span>ㅛ</span><small>yo</small></button>
+                <button class="vowel-card" data-vowel="ㅜ"><span>ㅜ</span><small>u</small></button>
+                <button class="vowel-card" data-vowel="ㅠ"><span>ㅠ</span><small>yu</small></button>
+                <button class="vowel-card" data-vowel="ㅡ"><span>ㅡ</span><small>eu</small></button>
+                <button class="vowel-card" data-vowel="ㅣ"><span>ㅣ</span><small>i</small></button>
+
+            </div>
+
+        </section>
+
+        <section class="vowel-section compound-section">
+
+            <div class="section-heading">
+                <h2>Compound Korean Vowels (복합 모음)</h2>
+                <p>Explore the 11 compound vowels.</p>
+            </div>
+
+            <div class="vowel-grid">
+
+                <button class="vowel-card" data-vowel="ㅐ"><span>ㅐ</span><small>ae</small></button>
+                <button class="vowel-card" data-vowel="ㅒ"><span>ㅒ</span><small>yae</small></button>
+                <button class="vowel-card" data-vowel="ㅔ"><span>ㅔ</span><small>e</small></button>
+                <button class="vowel-card" data-vowel="ㅖ"><span>ㅖ</span><small>ye</small></button>
+                <button class="vowel-card" data-vowel="ㅘ"><span>ㅘ</span><small>wa</small></button>
+                <button class="vowel-card" data-vowel="ㅙ"><span>ㅙ</span><small>wae</small></button>
+                <button class="vowel-card" data-vowel="ㅚ"><span>ㅚ</span><small>oe</small></button>
+                <button class="vowel-card" data-vowel="ㅝ"><span>ㅝ</span><small>wo</small></button>
+                <button class="vowel-card" data-vowel="ㅞ"><span>ㅞ</span><small>we</small></button>
+                <button class="vowel-card" data-vowel="ㅟ"><span>ㅟ</span><small>wi</small></button>
+                <button class="vowel-card" data-vowel="ㅢ"><span>ㅢ</span><small>ui</small></button>
+
+            </div>
+
+        </section>
+
+        <section class="vowel-details" id="vowelDetails">
+
+            <div class="detail-character" id="detailVowel">ㅏ</div>
+
+            <div class="detail-info">
+                <span class="detail-label">SELECTED VOWEL</span>
+                <h2 id="vowelName">아 (a)</h2>
+                <p id="vowelSound">Romanization: a</p>
+                <h3 id="vowelWord">아이</h3>
+                <p id="vowelMeaning">Meaning: Child</p>
+
+                <button id="playVowel" class="audio-button" type="button">
+                    🔊 Listen to Pronunciation
+                </button>
+            </div>
+
+        </section>
+
+        <div class="back-section">
+            <a href="{{ url_for('main.learn_hangul') }}">
+                ← Back to Learn Hangul
+            </a>
+        </div>
+
+    </main>
+
+    <script src="{{ url_for('static', filename='js/vowels.js') }}"></script>
+
+</body>
+</html>
